@@ -7,6 +7,7 @@ export default React.createClass({
   getInitialState(){
     return{
       user: {},
+      files: []
     }
   },
   componentDidMount(){
@@ -21,9 +22,10 @@ export default React.createClass({
     return(
       <main>
         <h1>Welcome {this.state.user.first},</h1>
-        <form>
+        <form onSubmit={this.handleSubmit}>
+          <span>Create a New Album</span>
           <input type="text" placeholder="Album Name"/>
-
+          <input type="submit" value="Submit"/>
         </form>
       </main>
     );
