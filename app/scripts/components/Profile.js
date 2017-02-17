@@ -1,4 +1,5 @@
 import React from 'react';
+import {browserHistory} from 'react-router';
 import store from '../store';
 
 import Dropzone from 'react-dropzone';
@@ -6,8 +7,7 @@ import Dropzone from 'react-dropzone';
 export default React.createClass({
   getInitialState(){
     return{
-      user: {},
-      files: []
+      user: {}
     }
   },
   componentDidMount(){
@@ -22,15 +22,15 @@ export default React.createClass({
     return(
       <main>
         <h1>Welcome {this.state.user.first},</h1>
-        <form onSubmit={this.handleSubmit}>
-          <span>Create a New Album</span>
-          <input type="text" placeholder="Album Name"/>
-          <input type="submit" value="Submit"/>
-        </form>
+        <input type="button" value="Create New Album" onClick={this.handleClick}/>
       </main>
     );
   },
   updateState(){
     this.setState({user: store.session.toJSON()});
+  },
+  handleClick(e){
+    e.preventDefault();
+    browserHistory.push('/create');
   }
 });

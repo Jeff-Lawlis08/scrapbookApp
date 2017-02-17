@@ -5,6 +5,7 @@ import App from './components/App';
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
+import CreateAlbum from './components/CreateAlbum';
 
 let index;
 if(window.localStorage.getItem('user-token')){
@@ -20,6 +21,7 @@ const router = (
       <Route path='/login' component={Login}/>
       <Route path='/register' component={Register}/>
       <Route path='/profile' component={Profile}/>
+      <Route path='/create' component={CreateAlbum}/>
     </Route>
   </Router>
 );
