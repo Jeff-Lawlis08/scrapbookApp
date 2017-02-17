@@ -6,6 +6,6 @@ export default Backbone.Collection.extend({
   url: 'https://api.backendless.com/v1/data/photos',
 
   addPhoto(fileURL){
-    this.create({url: fileURL, ownerId: window.localStorage.getItem('ownerId')});
+    this.create({url: fileURL, ownerId: window.localStorage.getItem('ownerId'), timestamp: new Date()});
   }
 });
